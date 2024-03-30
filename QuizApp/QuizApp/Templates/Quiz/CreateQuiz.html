@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block title %}{% trans "Create New Quiz" %}{% endblock %}
+
+{% block body %}
+<h2>{% trans "Create New Quiz" %}</h2>
+<form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="id_title">{% trans "Title" %}</label>
+        {{ form.title }}
+    </div>
+    <!-- Add other fields similarly -->
+    <div class="form-group">
+        <label for="id_category">{% trans "Category" %}</label>
+        {{ form.category }}
+    </div>
+    <div class="form-group">
+        <label for="id_exam_paper">{% trans "Exam Paper" %}</label>
+        {{ form.exam_paper }}
+    </div>
+    <div class="form-group">
+        <label for="id_single_attempt">{% trans "Single Attempt" %}</label>
+        {{ form.single_attempt }}
+    </div>
+    <button type="submit" class="btn btn-primary">{% trans "Create" %}</button>
+</form>
+{% endblock %}
